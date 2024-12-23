@@ -10,9 +10,9 @@ import { Server } from "socket.io";
 
 const PORT = process.env.PORT || 5432
 const app = express()
-
 conectToMongo()
 app.use(express.json());
+app.use(cors())
 
 app.use("/api/events", eventRouter);
 app.use("/api/countries", countryRouter);

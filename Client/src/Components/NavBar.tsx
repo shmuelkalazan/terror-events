@@ -1,11 +1,19 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import DescriptionIcon from '@mui/icons-material/Description';
-import { AppProvider } from '@toolpad/core/AppProvider';
+import { AppProvider , type Navigation } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Main from './Main';
+import Home from './Home';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import LayersIcon from '@mui/icons-material/Layers';
+import Types from './Types';
+import Year from './Years';
+import Years from './Years';
+
 
 const demoTheme = createTheme({
   cssVariables: {
@@ -23,71 +31,70 @@ const demoTheme = createTheme({
   },
 });
 
+
 function DemoPageContent({ pathname }: { pathname: string }) {
+  const nav = pathname
   return (
-    <Box
-      sx={{
-        py: 4,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-      }}
-    >
-      <Typography>Dashboard content for {pathname}</Typography>
-    </Box>
+    <>
+    {
+      nav === "/home" && <Main/>
+    }    
+    {
+      nav === "/types" && <Types/>
+    }
+        {
+      nav === "/years" && <Years/>
+    }
+    </>
   );
 }
 
 interface DemoProps {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window?: () => Window;
 }
+
+
 
 export default function DashboardLayoutNavigationLinks(props: DemoProps) {
   const { window } = props;
 
   const router = useDemoRouter('/home');
 
-  // Remove this const when copying and pasting into your project.
   const demoWindow = window !== undefined ? window() : undefined;
 
   return (
-    // preview-start
     <AppProvider
       navigation={[
         {
           segment: 'home',
-          title: 'ראשי',
+          title: 'main',
           icon: <DescriptionIcon />,
         },
         {
-          segment: 'about',
-          title: 'ארגוני טרור',
+          segment: 'types',
+          title: 'attakt types',
           icon: <DescriptionIcon />,
         },
         {
-            segment: 'about',
-            title: 'מדינות',
-            icon: <DescriptionIcon />,
+          segment: 'country',
+          title: 'countries',
+          icon: <DescriptionIcon />,
         },
         {
-            segment: 'about',
-            title: 'סוגי תקיפות',
-            icon: <DescriptionIcon />,
+          segment: 'years',
+          title: 'years',
+          icon: <DescriptionIcon />,
         },
       ]}
       router={router}
       theme={demoTheme}
       window={demoWindow}
-    >
+      // navigation={NAVIGATION}
+      
+      >
       <DashboardLayout>
         <DemoPageContent pathname={router.pathname} />
       </DashboardLayout>
     </AppProvider>
-    // preview-end
   );
 }
