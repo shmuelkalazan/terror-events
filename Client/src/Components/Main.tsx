@@ -6,6 +6,7 @@ import Map from './Map'
 import Org from './Org';
 import Types from './Types';
 import Years from './Years';
+import Country from './Country';
 
 export default function Main() {
   return (
@@ -38,7 +39,7 @@ export default function Main() {
           />
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="/org" element={<Org />} />
-        <Route path="/countries" element={<PieColor />} />
+        <Route path="/countries" element={<Country />} />
         <Route path="/types" element={<Types />} />
         <Route path="/years" element={<Years />} />
         <Route path="*" element={<div>page not found</div>} />
