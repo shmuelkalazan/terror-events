@@ -30,20 +30,17 @@ function  Types()  {
         if (types.length > 0) {
             const extractedNames = types.map((e) => e.name); 
             const extractedValues = types.map((e) => e.eventsCount);
-        
             setNames(extractedNames);
             setValue(extractedValues);
           }
       }, [types]);
 
-
   return (
-    <div>{  
+    <div >{  
         types && 
     <BarChart
       series={[
         { data: value },
-
       ]}
       height={600}
       xAxis={[{ data: names, scaleType: 'band' }]}

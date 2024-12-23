@@ -1,18 +1,10 @@
 import { createTheme } from '@mui/material/styles';
 import DescriptionIcon from '@mui/icons-material/Description';
-import { AppProvider , type Navigation } from '@toolpad/core/AppProvider';
+import { AppProvider  } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Main from './Main';
-import Home from './Home';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import LayersIcon from '@mui/icons-material/Layers';
-import Types from './Types';
-import Year from './Years';
-import Years from './Years';
+
 
 
 const demoTheme = createTheme({
@@ -31,28 +23,15 @@ const demoTheme = createTheme({
   },
 });
 
-
-function DemoPageContent({ pathname }: { pathname: string }) {
-  const nav = pathname
-  return (
-    <>
-    {
-      nav === "/home" && <Main/>
-    }    
-    {
-      nav === "/types" && <Types/>
-    }
-        {
-      nav === "/years" && <Years/>
-    }
-    </>
-  );
-}
-
 interface DemoProps {
   window?: () => Window;
 }
 
+function DemoPageContent() {
+  return (
+    <Main/>
+  );
+}
 
 
 export default function DashboardLayoutNavigationLinks(props: DemoProps) {
@@ -71,12 +50,17 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
           icon: <DescriptionIcon />,
         },
         {
+          segment: 'org',
+          title: 'organization',
+          icon: <DescriptionIcon />,
+        },
+        {
           segment: 'types',
           title: 'attakt types',
           icon: <DescriptionIcon />,
         },
         {
-          segment: 'country',
+          segment: 'countries',
           title: 'countries',
           icon: <DescriptionIcon />,
         },
@@ -86,14 +70,11 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
           icon: <DescriptionIcon />,
         },
       ]}
-      router={router}
       theme={demoTheme}
-      window={demoWindow}
-      // navigation={NAVIGATION}
-      
+      window={demoWindow}      
       >
       <DashboardLayout>
-        <DemoPageContent pathname={router.pathname} />
+        <DemoPageContent/>
       </DashboardLayout>
     </AppProvider>
   );

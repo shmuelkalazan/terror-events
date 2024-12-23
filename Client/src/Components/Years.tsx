@@ -27,7 +27,6 @@ function Years() {
       const [year, setYear] = React.useState("");
       const [range, setRange] = React.useState<number[]>([1970, 2017]);
 
-
       const BASE_URL = "http://localhost:5432/api/years/"
 
       useEffect(() => {
@@ -140,9 +139,9 @@ function Years() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={year}
-              label="yy"
+              label="select year"
               onChange={(e) => {handleYears(parseInt(e.target.value))}}
-            >{yy.map(e => <MenuItem value={e}>{e}</MenuItem>)}
+            >{yy.map((e ,index) => <MenuItem key={index} value={e}>{e}</MenuItem>)}
             </Select>
           </FormControl>
         </Box>
