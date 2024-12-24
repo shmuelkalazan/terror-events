@@ -12,14 +12,6 @@ export default function Main() {
   return (
     <div>
     <Box
-      // sx={{
-      //   py: 4,
-      //   display: 'flex',
-      //   flexDirection: 'column',
-      //   alignItems: 'center',
-      //   textAlign: 'center',
-      //   gap: 4,
-      // }}
     >
       <Routes>
         <Route path="/home" element={

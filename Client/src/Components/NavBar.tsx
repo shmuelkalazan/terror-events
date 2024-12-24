@@ -3,6 +3,13 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import { AppProvider  } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
+import PlaceIcon from '@mui/icons-material/Place';
+import HomeIcon from '@mui/icons-material/Home';
+import TodayIcon from '@mui/icons-material/Today';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+
+
+
 import Main from './Main';
 
 
@@ -47,7 +54,7 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
         {
           segment: 'home',
           title: 'main',
-          icon: <DescriptionIcon />,
+          icon: <HomeIcon />,
         },
         {
           segment: 'org',
@@ -57,21 +64,21 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
         {
           segment: 'types',
           title: 'attakt types',
-          icon: <DescriptionIcon />,
+          icon: <FormatListBulletedIcon />,
         },
         {
           segment: 'countries',
           title: 'countries',
-          icon: <DescriptionIcon />,
+          icon: <PlaceIcon />,
         },
         {
           segment: 'years',
           title: 'years',
-          icon: <DescriptionIcon />,
+          icon: <TodayIcon />,
         },
       ]}
       theme={demoTheme}
-      window={demoWindow}      
+      window={demoWindow}
       >
       <DashboardLayout>
         <DemoPageContent/>
