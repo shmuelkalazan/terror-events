@@ -149,7 +149,7 @@ function Years() {
       {info &&
       <BarChart
       series={[
-        { data: averages },
+        { data: averages , color :"#4caf50"},
       ]}
       height={450}
       xAxis={[{ data: names, scaleType: 'band' }]}

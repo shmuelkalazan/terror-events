@@ -68,7 +68,7 @@ function  Org()  {
         org && 
     <BarChart
       series={[
-        { data: value },
+        { data: value , color :"#4caf50"},
       ]}
       height={600}
       xAxis={[{ data: names, scaleType: 'band' }]}

@@ -105,7 +105,7 @@ function CountryMap() {
     };
     fetchData()
   };
-  
+
 
 
   const get5OrgMarkByEria = () => {
@@ -255,7 +255,7 @@ function CountryMap() {
             </Stack>
             <BarChart
               series={[
-                { data: value},
+                { data: value , color :"#4caf50"},
               ]}
               height={400}
               xAxis={[{ data: names, scaleType: 'band' }]}

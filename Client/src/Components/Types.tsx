@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import PieColor from './PieColor'
 import { BarChart } from '@mui/x-charts/BarChart';
+import { blue } from '@mui/material/colors';
 
 
 interface types  {
@@ -40,7 +40,7 @@ function  Types()  {
         types && 
     <BarChart
       series={[
-        { data: value },
+        { data: value , color :"#4caf50"},
       ]}
       height={600}
       xAxis={[{ data: names, scaleType: 'band' }]}

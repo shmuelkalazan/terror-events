@@ -48,7 +48,7 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
   const demoWindow = window !== undefined ? window() : undefined;
 
   return (
-    <AppProvider
+    <AppProvider 
       navigation={[
         {
           segment: 'home',
@@ -80,7 +80,7 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
       window={demoWindow}
       >
       <DashboardLayout>
-        <DemoPageContent/>
+        <DemoPageContent />
       </DashboardLayout>
     </AppProvider>
   );
