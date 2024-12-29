@@ -49,7 +49,6 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
 
   return (
     <AppProvider
-    
       navigation={[
         {
           segment: 'home',

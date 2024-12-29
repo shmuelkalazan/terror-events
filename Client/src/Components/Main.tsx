@@ -1,8 +1,6 @@
 
 import { Box } from '@mui/material'
-import PieColor from './PieColor'
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Map from './Map'
 import Org from './Org';
 import Types from './Types';
 import Years from './Years';
@@ -15,6 +13,21 @@ export default function Main() {
     >
       <Routes>
         <Route path="/home"
+         element={
+          <Box 
+                sx={{
+                  py: 4,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  gap: 4,
+                }}
+          >
+            <h1>about us</h1>
+            <p>blah blah</p>
+
+          </Box> }
           />
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="/org" element={<Org />} />
