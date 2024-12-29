@@ -105,6 +105,7 @@ function CountryMap() {
     };
     fetchData()
   };
+  
 
 
   const get5OrgMarkByEria = () => {
@@ -136,15 +137,15 @@ function CountryMap() {
       <div className='disply_org_header'>
       <Box sx={{ minWidth: 120 ,maxWidth :200 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">select viwe</InputLabel>
+        <InputLabel id="demo-simple-select-label">select view</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="select viwe"
+          label="select view"
           onChange={handleChangeDisply}
         >
-          <MenuItem value={"true"}>display regin with high csualtis</MenuItem>
+          <MenuItem value={"true"}>display all areas with casualties average casualties</MenuItem>
           <MenuItem value={"false"}>display org mark in spssific aria</MenuItem>
         </Select>
       </FormControl>
@@ -155,7 +156,21 @@ function CountryMap() {
         noValidate
         autoComplete="off"
       >
-        <TextField onChange={updateAria}  id="standard-basic" label="serch eria" variant="standard" />
+        <TextField onChange={updateAria}  id="standard-basic" label="serch aria" variant="standard" />
+      </Box>
+        <Stack spacing={2} direction="row">
+          <Button onClick={getOrgMarkByEria} variant="outlined">serch</Button>
+        </Stack>
+      </div>
+  
+    }
+    { baseDisply && <div className='serch'>  <Box
+        component="form"
+        sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField onChange={updateAria}  id="standard-basic" label="serch aria" variant="standard" />
       </Box>
         <Stack spacing={2} direction="row">
           <Button onClick={getOrgMarkByEria} variant="outlined">serch</Button>
@@ -164,8 +179,8 @@ function CountryMap() {
   
     }
       </div>
-{     baseDisply && <h2>all countries by csualtis</h2>}
-{     !baseDisply && <h2>all mark in spasific aria</h2>}
+{     baseDisply && <h2>all areas with casualties average casualties</h2>}
+{     !baseDisply && <h2>all organiztion mark in spasific aria</h2>}
 
       <MapContainer
         style={{ height: '500px', width: '90%' }}
@@ -178,7 +193,6 @@ function CountryMap() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* הוספת מרקרים דינמיים */}
         {baseDisply ?
          allCountries.map((country) => (
           <Marker
@@ -196,7 +210,6 @@ function CountryMap() {
               })
             }
           >
-            {/* הצגת מידע בחלונית פופ-אפ */}
             <Popup>
               <div>
                 <h3>{country.name}</h3>
@@ -222,10 +235,9 @@ function CountryMap() {
               })
             }
           >
-            {/* הצגת מידע בחלונית פופ-אפ */}
             <Popup>
               <div>
-                <h3>organizations</h3>
+                <h3>top 5 organizations</h3>
                 {org5 && org5.map((e, index) => <p key={index}>{`${index}.${e.name}`}</p>)}
               </div>
             </Popup>
