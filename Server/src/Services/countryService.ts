@@ -32,7 +32,7 @@ const getAverageCasualtiesByCountry = async () => {
 };
 
 const getAverageCasualtiesByCountryId = async (countryId: string) => {
-    try {console.log(countryId, ); 
+    try {
         return await countryModel.aggregate([
             { 
                 $match: { _id: new mongoose.Types.ObjectId(countryId) }

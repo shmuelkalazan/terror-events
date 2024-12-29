@@ -14,20 +14,7 @@ export default function Main() {
     <Box
     >
       <Routes>
-        <Route path="/home" element={
-          <Box 
-                sx={{
-                  py: 4,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                  gap: 4,
-                }}
-          >
-            <Map />
-            <PieColor />
-          </Box> }
+        <Route path="/home"
           />
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="/org" element={<Org />} />

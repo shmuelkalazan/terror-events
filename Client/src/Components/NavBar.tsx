@@ -18,7 +18,6 @@ const demoTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
-  colorSchemes: { light: true, dark: true },
   breakpoints: {
     values: {
       xs: 0,
@@ -50,6 +49,7 @@ export default function DashboardLayoutNavigationLinks(props: DemoProps) {
 
   return (
     <AppProvider
+    
       navigation={[
         {
           segment: 'home',
